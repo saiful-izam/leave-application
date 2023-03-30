@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model LeaveFormViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (TempData["successMessage"] != null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <p>@TempData["successMessage"]</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h1>Leave Application Form</h1>
+<form action="Leave/Add" method="post">
+    <div class="mb-3">
+        <label for="employeeName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="employeeName" asp-for=Name aria-describedby="employeeName">
+    </div>
+    <div class="mb-3">
+        <label for="employeeEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="employeeEmail" asp-for="Email">
+    </div>
+    <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input type="date" class="form-control" id="startDate" asp-for="StartDate">
+    </div>
+    <div class="mb-3">
+        <label for="endDate" class="form-label">End Date</label>
+        <input type="date" class="form-control" id="enDate" asp-for="EndDate">
+    </div>
+    <div class="mb-3">
+        <label for="reason" class="form-label">Reason</label>
+        <textarea type="text" class="form-control" id="reason" asp-for="Reason"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="emailManager" class="form-label">Manager's Email</label>
+        <input type="text" class="form-control" id="emailManager" asp-for="EmailManager">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
